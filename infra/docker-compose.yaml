@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  flask:
+    build: ../covid_page/
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/covid_page
+    restart: always
+
+  nginx:
+    image: nginx:1.21.3-alpine
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+    depends_on:
+      - flask
+    restart: always
