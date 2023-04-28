@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  flask:
+  lending_page_covid:
     build: ../covid_page/
     ports:
       - "5000:5000"
@@ -16,5 +16,5 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - flask
+      - lending_page_covid
     restart: always
