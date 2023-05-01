@@ -2,11 +2,11 @@ version: '3'
 
 services:
   app:
-    build: ../covid_page/
+    build: ../irbis-eh_app/
     ports:
       - "5000:5000"
     volumes:
-      - .:/covid_page
+      - .:/irbis-eh_app
     restart: always
 
   webserver:
