@@ -17,15 +17,18 @@ function Noise()
     this.loopTimeout = null;
     this.resizeThrottle = null;
 
-    this.Init();
+    // this.Init();
 }
 
-Noise.prototype.Init = function()
+Noise.prototype.Init = function(width, height)
 {
     let _this = this;
 
-    _this.canvas = document.getElementById("noise");
+    _this.canvas = document.querySelector(".noise");
     _this.ctx = _this.canvas.getContext("2d")
+
+    _this.wWidth = width;
+    _this.wHeight = height;
 
     _this.Setup();
     _this.Reset();
@@ -35,11 +38,7 @@ Noise.prototype.Setup = function ()
 {
     let _this = this;
 
-    // this.idxFrame = 0;
     this.framesData = [];
-
-    _this.wWidth = window.innerWidth;
-    _this.wHeight = window.innerHeight;
 
     _this.canvas.width = _this.wWidth;
     _this.canvas.height = _this.wHeight;
@@ -91,9 +90,12 @@ Noise.prototype.PaintNoise = function ()
 }
 
 Noise.prototype.Reset = function () {
+
     let _this = this;
+
     _this.framesData = [];
     _this.idxFrame = 0;
+
     for (let i = 0; i < _this.amountFrames; i++) {
         _this.CreateNoise();
     }
