@@ -39,7 +39,9 @@ Noise.prototype.Setup = function ()
     let _this = this;
 
     this.framesData = [];
+    
     console.log(_this.wWidth, _this.wHeight)
+
     _this.canvas.width = _this.wWidth;
     _this.canvas.height = _this.wHeight;
 
