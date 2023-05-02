@@ -1,0 +1,36 @@
+<div id="popup">
+    <canvas id="noise" class="noise"></canvas>
+    <p>This is a popup that appears when you scroll to the top of the page.</p>
+</div>
+
+<style>
+    #popup {
+    position: fixed;  /* фиксированное позиционирование */
+    top: 85%;         /* расположение сверху на 50% */
+    left: 15%;        /* расположение слева на 50% */
+    transform: translate(-50%, -50%);  /* сдвиг на -50% от ширины и высоты */
+    z-index: 9999;    /* устанавливаем высокий z-index, чтобы попап был поверх всего остального контента */
+    background-color: white; /* цвет фона попапа */
+    border: 1px solid black; /* рамка попапа */
+    padding: 20px;    /* отступы внутри попапа */
+    width: 400px;     /* ширина попапа */
+    height: 300px;    /* высота попапа */
+    overflow: auto;
+}
+</style>
+
+<script>
+    'use strict';
+    import Noise from '../static/js/effects/Noise.js';
+
+
+{#    window.onscroll = function() {scrollFunction()};#}
+{##}
+{#    function scrollFunction() {#}
+{#        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {#}
+{#            document.getElementById("popup").style.display = "block";#}
+{#        } else {#}
+{#            document.getElementById("popup").style.display = "none";#}
+{#        }#}
+{#    }#}
+</script>
