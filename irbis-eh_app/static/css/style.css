@@ -9,16 +9,15 @@ body {
     font-family: "Montserrat";
     font-size: 100%;
 }
-.noise_wrapper {
-    width: 100%;
-    height: 100%;
-}
-.menu_noise {
+/*.noise_wrapper {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+#noise {
     z-index: -9999;
     position: absolute;
     top: 0;
     left: 0;
-
     pointer-events: none;
     opacity: .05;
 }
