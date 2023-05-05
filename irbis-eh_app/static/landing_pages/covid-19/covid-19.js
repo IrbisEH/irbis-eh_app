@@ -105,5 +105,25 @@ window.addEventListener('load', function() {
     });
 });
 
+$(document).ready(function () {
+    $("#send-email-btn").click(function () {
+        const email = $("#email").val();
+        $.ajax({
+            type: "POST",
+            url: "/send_covid_email",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({
+                email: email
+            }),
+            success: function(response) {
+                console.log("email send to server")
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        })
+    })
+})
+
 
 

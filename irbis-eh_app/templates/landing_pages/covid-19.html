@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='landing_pages/covid-19/covid-19.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='landing_pages/covid-19/covid-19.js') }}"></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='landing_pages/covid-19/covid-19.ico') }}">
     <title>Covid-19</title>
@@ -243,7 +244,7 @@
                 <form id="input_email">
                     <div class="input-container">
                         <input type="email" id="email" name="email" placeholder="example@mail.com" required>
-                        <button type="submit">Send</button>
+                        <button id="send-email-btn" type="submit">Send</button>
                     </div>
                     <span id="emailValidationMessage" style="display: none; color: red;">Incorrect email</span>
                 </form>

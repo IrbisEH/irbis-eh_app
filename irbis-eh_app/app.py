@@ -1,6 +1,6 @@
 import os
 
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request, jsonify
 from flask_mail import Mail, Message
 
 from dotenv import load_dotenv
@@ -58,6 +58,18 @@ def send_test_mail_message():
     return result
 
 
+@app.route('/send_covid_email', methods=['POST'])
+def send_covid_email():
+    email = request.json.get('email')
+    print(request.referrer)
+    send_mail(
+        email,
+        subject='COVID-19 landing page',
+        body='Thank you for visiting the COVID-19 page.\nMore projects can be seen on irbis-eh.space'
+    )
+    return jsonify({"message": "Email отправлен: {}".format(email)})
+
+
 if __name__ == '__main__':
-    app.run(host='127.0.0.1', port='5000')
+    app.run(host='127.0.0.1', port='3000')
 
