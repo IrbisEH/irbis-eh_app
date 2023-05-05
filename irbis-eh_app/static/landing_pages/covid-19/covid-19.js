@@ -16,7 +16,6 @@ window.addEventListener('load', function() {
         let block_id = document.querySelector(`#${name + "_card"}`);
         let svg_paths = svg_obj.querySelectorAll("path");
 
-
         mapElements[name] = {svg_paths: svg_paths, block_id: block_id}
     }
 
@@ -104,7 +103,6 @@ window.addEventListener('load', function() {
         virusImg1.style.transform = `translate(${Math.random()*4-2}px, ${Math.random()*4-2}px)`;
         virusImg2.style.transform = `translate(${Math.random()*4-2}px, ${Math.random()*4-2}px)`;
     });
-
 });
 
 
