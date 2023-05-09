@@ -1,7 +1,8 @@
 import os
 
 from flask import Flask, render_template, redirect, url_for, request, jsonify
-from flask_mail import Mail, Message
+
+from utils.MailSender import MailSender
 
 from dotenv import load_dotenv
 
@@ -20,16 +21,7 @@ app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_DEFAULT_SENDER')
 
 app.config['MAIL_SUPPRESS_SEND'] = False
 
-mail = Mail(app)
-
-
-def send_mail(user_to, subject='', body=''):
-    msg = Message(
-        recipients=[user_to],
-        body=body,
-        subject=subject
-    )
-    mail.send(msg)
+MailSender = MailSender(app)
 
 
 @app.route('/')
@@ -43,14 +35,19 @@ def menu():
 
 
 @app.route('/landing_pages/covid-19')
-def landing_page_covid_19():
+def landing_pages_covid_19():
     return render_template('landing_pages/covid-19.html')
+
+
+@app.route('/games/conwaysGame')
+def games_conways_game():
+    return render_template('games/conwaysGame.html')
 
 
 @app.route('/send_test_message')
 def send_test_mail_message():
     result = 'Message sent successfully!'
-    send_mail(
+    MailSender.send_mail(
         'hristenko.evgeniy@yandex.ru',
         subject='Test email message.',
         body='Hello Flask'
@@ -62,7 +59,7 @@ def send_test_mail_message():
 def send_covid_email():
     email = request.json.get('email')
     print(request.referrer)
-    send_mail(
+    MailSender.send_mail(
         email,
         subject='COVID-19 landing page',
         body='Thank you for visiting the COVID-19 page.\nMore projects can be seen on irbis-eh.space'
