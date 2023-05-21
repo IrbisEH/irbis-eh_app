@@ -31,10 +31,10 @@ def main():
 def menu():
     return render_template('menu.html')
 
-# /Users/evgenijhristenko/irbis-eh_app/irbis-eh_app/templates/landing_pages/landing_page_covid-19/covid-19.html
+
 @app.route('/landing_pages/covid-19')
 def landing_pages_covid_19():
-    return render_template('landing_pages/landing_page_covid-19/covid-19.html')
+    return render_template('landing_page_covid-19/covid-19.html')
 
 
 @app.route('/games/conwaysGame')
