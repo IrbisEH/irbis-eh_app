@@ -16,7 +16,6 @@ window.addEventListener('load', function() {
         let block_id = document.querySelector(`#${name + "_card"}`);
         let svg_paths = svg_obj.querySelectorAll("path");
 
-
         mapElements[name] = {svg_paths: svg_paths, block_id: block_id}
     }
 
@@ -104,8 +103,27 @@ window.addEventListener('load', function() {
         virusImg1.style.transform = `translate(${Math.random()*4-2}px, ${Math.random()*4-2}px)`;
         virusImg2.style.transform = `translate(${Math.random()*4-2}px, ${Math.random()*4-2}px)`;
     });
-
 });
+
+$(document).ready(function () {
+    $("#send-email-btn").click(function () {
+        const email = $("#email").val();
+        $.ajax({
+            type: "POST",
+            url: "/send_covid_email",
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({
+                email: email
+            }),
+            success: function(response) {
+                console.log("email send to server")
+            },
+            error: function(error) {
+                console.error(error);
+            }
+        })
+    })
+})
 
 
 

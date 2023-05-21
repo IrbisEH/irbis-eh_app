@@ -11,9 +11,14 @@
 </head>
 <body>
     <div id="menu">
-        <a href="{{ url_for('landing_page_covid_19') }}">
-            <button>covid-19</button>
-        </a>
+        <div class="buttons">
+            <a href="{{ url_for('landing_pages_covid_19') }}">
+                <button>covid-19</button>
+            </a>
+            <a href="{{ url_for('games_conways_game') }}">
+                <button>Conway's game</button>
+            </a>
+        </div>
     </div>
     <canvas class="noise" id="menu_noise"></canvas>
 </body>
