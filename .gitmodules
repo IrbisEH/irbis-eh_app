@@ -1,0 +1,3 @@
+[submodule "landing_page_covid-19"]
+	path = landing_page_covid-19
+	url = https://github.com/IrbisEH/landing_page_covid-19.git
